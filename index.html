@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" style="scroll-behavior: smooth;">
-    <head>
-        <title>Muhammed Shanib</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="icon" href="imgaes/profile-pic (1).png" type="image/gif" sizes="16x16">
-    </head>
+<head>
+    <title>Muhammed Shanib</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="imgaes/profile-pic (1).png" type="image/gif" sizes="16x16">
+</head>
     <body>
         <header style="position: fixed; width: 100%; z-index: 1;">
 
@@ -197,26 +198,26 @@
           <h1 class="text-center">Contact me</h1>
           <div class="row">
            <div class="col-md-12">
-            <form>
+            <form id="submit-form" >
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Name</label>
-                  <input type="text" class="form-control" id="inputEmail4" placeholder="Name">
+                  <label for="inputEmail4" >Name</label>
+                  <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Name">
                 </div>
                 <div class="form-group col-md-6 ">
                   <label for="inputPassword4">Place</label>
-                  <input type="text" class="form-control" id="inputPassword4" placeholder="Place">
+                  <input type="text" class="form-control" name="place" id="inputPassword4" placeholder="Place">
                 </div>
 
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6 ">
                   <label for="inputEmail4">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
                 </div>
                 <div class="form-group col-md-6 ">
                   <label for="inputPassword4">Mobile</label>
-                  <input type="tel" class="form-control" id="inputPassword4" placeholder="Mobile">
+                  <input type="tel" class="form-control" name="mobile" id="inputPassword4" placeholder="Mobile">
                 </div>
               </div>
               
@@ -224,7 +225,7 @@
               <div class="form-group">
                 <label for="inputAddress">Message</label>
                 
-                <textarea cols="30" rows="10" class="form-control" placeholder="Type you Message Here"></textarea>
+                <textarea cols="30" rows="10" name="message" class="form-control" placeholder="Type you Message Here"></textarea>
               </div>
               
               
@@ -247,9 +248,29 @@
           </div>
         </div>
       </footer>
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script>
+        $(document).ready(function() {
+            $("#submit-form").submit(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbyNrkGBziRR4olH0z40PVa4riaxqt56zXHxUi6_3FTLo_ITfPmZGj0GCsNfuMiE3y3Y/exec",
+                    data: $("#submit-form").serialize(),
+                    method: "post",
+                    success: function(response) {
+                        alert("Form submitted successfully");
+                        window.location.reload();
+                        // If you want to redirect to another page after form submission, use:
+                        // window.location.href = "https://example.com";
+                    },
+                    error: function(err) {
+                        alert("Something went wrong");
+                    }
+                });
+            });
+        });
+    </script>
+       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
